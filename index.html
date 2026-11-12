@@ -3,211 +3,156 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Agen Pulsa - CuanPay</title>
+    <title>Beli Pulsa - Tri</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-gray">
 
-    <!-- Header Section -->
-    <header class="app-header">
-        <div class="header-top">
-            <div class="menu-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-            </div>
-            <div class="greeting">
-                <h2>Hai, riris05</h2>
-            </div>
-            <div class="trx-badge">0 Trx</div>
-        </div>
-
-        <!-- Card Stok Agen -->
-        <div class="card stok-card">
-            <div class="stok-info">
-                <div class="stok-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
-                </div>
-                <div>
-                    <p class="text-muted">Stok Agen</p>
-                    <h3 class="stok-amount">531</h3>
-                </div>
-            </div>
-            <button class="btn-topup">TOP UP</button>
-        </div>
+    <!-- Header Halaman Pulsa -->
+    <header class="page-header">
+        <a href="index.html" class="back-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        </a>
+        <a href="#" class="refresh-btn" onclick="window.location.reload()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        </a>
     </header>
 
-    <!-- Main Content -->
-    <main class="app-main">
+    <main class="app-main pulsa-main">
         
-        <!-- === TAMBAHAN BARU: KARTU QRIS === -->
-        <div class="card qris-card">
-            <div class="qris-header">
-                <h3>Scan QRIS untuk Top Up</h3>
-                <p>Gunakan e-wallet atau m-banking Anda</p>
+        <!-- Kartu Input Nomor -->
+        <div class="card input-card">
+            <div class="input-header">
+                <div class="icon-box bg-light-green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </div>
+                <h2>Pulsa</h2>
             </div>
-            <div class="qris-image-container">
-                <!-- Menggunakan Direct Link (Raw) dari GitHub -->
-                <img src="https://raw.githubusercontent.com/meyrafli24-a11y/Pulsa-agen/main/qr_ID1025376713323_07.01.26_176777048_1767770502053.jpeg" alt="QRIS Top Up" class="qris-img">
+            
+            <div class="input-group">
+                <label>Nomor HP</label>
+                <div class="input-wrapper">
+                    <input type="tel" id="nomorHp" value="0898" placeholder="Masukkan nomor HP">
+                    <button class="clear-btn" onclick="document.getElementById('nomorHp').value=''">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                    </button>
+                </div>
             </div>
-        </div>
-        <!-- === AKHIR TAMBAHAN === -->
 
-        <!-- Menu Cepat (Profil, Rekap, dll) -->
-        <div class="quick-menu">
-            <!-- ... (Kode menu cepat tetap sama) ... -->
-            <div class="menu-item">
-                <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
-                <span>Profil</span>
-            </div>
-            <div class="menu-item">
-                <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div>
-                <span>Rekap</span>
-            </div>
-            <div class="menu-item">
-                <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
-                <span>Bantuan</span>
-            </div>
-            <div class="menu-item">
-                <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
-                <span>Info</span>
+            <!-- Tombol Bantuan Input -->
+            <div class="input-tools">
+                <button><svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Kontak</button>
+                <button><svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M7 7h.01M7 12h.01M12 7h.01M12 12h.01M17 7h.01M17 12h.01M7 17h10"/></svg> Scan QR</button>
+                <button><svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg> Bicara</button>
             </div>
         </div>
 
-        <!-- Info Berjalan (Marquee) -->
-        <div class="running-text">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-            <div class="marquee">
-                <span>Info Transaksi terpantau lancar, jika ada pertanyaan/kendala silakan chat CS kami.</span>
-            </div>
+        <!-- Tab Provider -->
+        <div class="provider-tabs">
+            <button class="p-tab active">Tri</button>
+            <button class="p-tab">+Masa Aktif Tri</button>
         </div>
 
-        <!-- Banner Promo -->
-        <div class="banner">
-            <div class="banner-text">
-                <p>Ajak Teman Transaksi</p>
-                <h1>BONUS SALDO</h1>
+        <!-- Pencarian & Filter -->
+        <div class="search-filter">
+            <div class="search-box">
+                <input type="text" placeholder="Pencarian" id="searchInput" onkeyup="filterProduk()">
             </div>
-            <div class="banner-illustration">
-                <div class="coin"></div>
-                <div class="coin coin2"></div>
-            </div>
+            <button class="filter-btn bg-white">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+            </button>
+            <button class="filter-btn bg-white">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+            </button>
         </div>
 
-        <!-- Tab Menu -->
-        <div class="tab-menu">
-            <button class="tab-btn active" onclick="switchTab('isi-ulang')">Isi Ulang</button>
-            <button class="tab-btn" onclick="switchTab('bayar-tagihan')">Bayar Tagihan</button>
-            <button class="tab-btn" onclick="switchTab('hiburan')">Hiburan</button>
-        </div>
-
-        <!-- Product Grid (Isi Ulang) -->
-        <div class="product-card" id="isi-ulang">
-            <h3>Isi Ulang</h3>
-            <div class="grid-container">
-                <!-- ... (Kode grid produk tetap sama, tidak saya ulangi agar tidak kepanjangan) ... -->
-                <!-- Pastikan Anda tetap menyalin semua grid-item dari kode sebelumnya ke sini -->
-                 <div class="grid-item">
-                    <div class="product-icon pulsa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
-                    <span>Pulsa</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon pulsa-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><circle cx="12" cy="12" r="3"/></svg></div>
-                    <span>Pulsa Ekonomis</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #FFC107;"><svg viewBox="0 0 24 24" fill="none" stroke="#FFC107" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                    <span>Token PLN</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="background: #4a148c; color: white; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 10px;">AXIS</div>
-                    <span>Axis</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #00bcd4; font-weight: bold; font-size: 16px;">by.U</div>
-                    <span>by.U</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #ffeb3b; font-weight: bold; font-size: 18px; background: #000; border-radius: 4px; padding: 0 4px;">im3</div>
-                    <span>Indosat</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #000; font-weight: bold; font-size: 18px;">sf</div>
-                    <span>Smartfren</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #e53935; font-weight: bold; font-size: 18px;">T</div>
-                    <span>Telkomsel</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #8e24aa; font-weight: bold; font-size: 18px;">3</div>
-                    <span>Tri</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon" style="color: #1e88e5; font-weight: bold; font-size: 18px;">XL</div>
-                    <span>XL</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#03A9F4" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-                    <span>Nelpon & SMS</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#1976D2" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2" ry="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
-                    <span>e-Toll</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#f44336" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-                    <span>Token Pertagas</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E91E63" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg></div>
-                    <span>TV Kabel</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#00BCD4" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg></div>
-                    <span>Uang Elektronik</span>
-                </div>
-                <div class="grid-item">
-                    <div class="product-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#29B6F6" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="7.5 4.21 12 6.81 16.5 4.21"/><polyline points="7.5 19.79 7.5 14.6 3 12"/><polyline points="21 12 16.5 14.6 16.5 19.79"/></svg></div>
-                    <span>Inject Massal</span>
-                </div>
+        <!-- Grid Produk Pulsa -->
+        <div class="product-grid-pulsa" id="produkGrid">
+            <!-- Item Produk akan di-generate oleh JS di bawah, atau ditulis manual seperti ini -->
+            
+            <div class="product-item">
+                <h4>Pulsa Tri 5.000</h4>
+                <p class="price">5.200</p>
             </div>
-        </div>
-
-        <!-- Placeholder untuk tab lain -->
-        <div class="product-card hidden" id="bayar-tagihan">
-            <h3>Bayar Tagihan</h3>
-            <p style="text-align:center; color:#888; padding: 20px;">Fitur segera hadir.</p>
-        </div>
-        <div class="product-card hidden" id="hiburan">
-            <h3>Hiburan</h3>
-            <p style="text-align:center; color:#888; padding: 20px;">Fitur segera hadir.</p>
+            <div class="product-item">
+                <h4>Pulsa Tri Promo 5.000</h4>
+                <p class="price">5.228</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri Promo 10.000</h4>
+                <p class="price">10.042</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 10.000</h4>
+                <p class="price">10.335</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 15.000</h4>
+                <p class="price">14.750</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri Promo 20.000</h4>
+                <p class="price">19.845</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 20.000</h4>
+                <p class="price">19.950</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 25.000</h4>
+                <p class="price">24.745</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 30.000</h4>
+                <p class="price">29.655</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 40.000</h4>
+                <p class="price">39.845</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 50.000</h4>
+                <p class="price">49.350</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 60.000</h4>
+                <p class="price">59.256</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 70.000</h4>
+                <p class="price">68.925</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 75.000</h4>
+                <p class="price">74.523</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 80.000</h4>
+                <p class="price">79.786</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 90.000</h4>
+                <p class="price">89.250</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri Promo 100.000</h4>
+                <p class="price">96.788</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 100.000</h4>
+                <p class="price">99.000</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 150.000</h4>
+                <p class="price">148.372</p>
+            </div>
+            <div class="product-item">
+                <h4>Pulsa Tri 200.000</h4>
+                <p class="price">198.622</p>
+            </div>
         </div>
 
     </main>
-
-    <!-- Bottom Navigation -->
-    <nav class="bottom-nav">
-        <!-- ... (Kode navigasi bawah tetap sama) ... -->
-        <a href="#" class="nav-item active">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            <span>Home</span>
-        </a>
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-            <span>Transaksi</span>
-        </a>
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-            <span>Mutasi</span>
-        </a>
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            <span>Favorit</span>
-        </a>
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-            <span>Lainnya</span>
-        </a>
-    </nav>
 
     <script src="script.js"></script>
 </body>
