@@ -1,53 +1,231 @@
-/* ... (Kode CSS sebelumnya tetap sama) ... */
+/* =========================================
+   STYLE KHUSUS HALAMAN PULSA (pulsa.html)
+   ========================================= */
 
-/* === TAMBAHAN BARU: STYLE UNTUK KARTU QRIS === */
-.qris-card {
+body.bg-gray {
+    background-color: #f4f6f8;
+}
+
+/* Header Halaman (Hijau dengan tombol back & refresh) */
+.page-header {
+    background-color: #4CAF50;
+    padding: 15px 20px 40px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.back-btn svg, .refresh-btn svg {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.pulsa-main {
+    padding: 0 15px 20px 15px;
+    margin-top: -30px; /* Menarik konten ke atas menimpa header */
+}
+
+/* Kartu Input Nomor */
+.input-card {
+    padding: 15px;
     margin-bottom: 15px;
-    text-align: center;
-    padding: 20px;
 }
 
-.qris-header h3 {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.qris-header p {
-    font-size: 12px;
-    color: #888;
+.input-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
-.qris-image-container {
+.icon-box {
+    width: 35px;
+    height: 35px;
+    border-radius: 8px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #f9f9f9;
-    border: 1px dashed #ccc;
+}
+
+.bg-light-green {
+    background-color: #E8F5E9;
+}
+
+.icon-box svg {
+    width: 20px;
+    height: 20px;
+}
+
+.input-header h2 {
+    font-size: 18px;
+    color: #333;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
     border-radius: 8px;
+    padding: 10px 15px;
+    background: #fff;
+}
+
+.input-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+}
+
+.clear-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.clear-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Tombol Kontak, Scan, Bicara */
+.input-tools {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.input-tools button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    border-radius: 20px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+
+.input-tools button svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Tab Provider (Tri, Masa Aktif) */
+.provider-tabs {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.p-tab {
+    flex: 1;
     padding: 15px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    font-size: 14px;
+    color: #888;
+    font-weight: 600;
+    cursor: pointer;
 }
 
-.qris-img {
-    max-width: 100%;
-    width: 250px; /* Mengatur lebar agar tidak terlalu besar di HP */
-    height: auto;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-/* ============================================== */
-
-/* Style untuk gambar QRIS yang bisa di-zoom */
-.qris-img {
-    cursor: zoom-in; /* Mengubah kursor jadi kaca pembesar */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek animasi halus */
+.p-tab.active {
+    color: #4CAF50;
+    border-bottom: 2px solid #4CAF50;
 }
 
-.qris-img.zoom {
-    transform: scale(1.8); /* Memperbesar gambar 1.8 kali lipat */
-    position: relative;
-    z-index: 999; /* Memastikan gambar ada di paling depan */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Efek bayangan saat zoom */
-    border-radius: 10px;
+/* Pencarian & Filter */
+.search-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box {
+    flex: 1;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    background: white;
+}
+
+.filter-btn {
+    width: 45px;
+    height: 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Grid Produk Pulsa */
+.product-grid-pulsa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.product-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    cursor: pointer;
+    transition: transform 0.2s, border 0.2s;
+    border: 1px solid transparent;
+}
+
+.product-item:active {
+    transform: scale(0.98);
+    border-color: #4CAF50;
+}
+
+.product-item h4 {
+    font-size: 13px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.product-item .price {
+    font-size: 14px;
+    color: #4CAF50;
+    font-weight: bold;
 }
