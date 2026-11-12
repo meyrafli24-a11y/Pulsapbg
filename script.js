@@ -1,61 +1,42 @@
-// === 1. LOGIKA TAB MENU (Isi Ulang, Bayar Tagihan, Hiburan) ===
-function switchTab(tabId) {
-    // Sembunyikan semua konten product-card
-    const contents = document.querySelectorAll('.product-card');
-    contents.forEach(content => {
-        content.classList.add('hidden');
-    });
+// === FITUR PENCARIAN PRODUK PULSA ===
+function filterProduk() {
+    // Ambil nilai dari input pencarian
+    let input = document.getElementById('searchInput');
+    let filter = input.value.toLowerCase();
+    
+    // Ambil semua item produk
+    let items = document.querySelectorAll('.product-item');
 
-    // Tampilkan konten yang dipilih
-    const activeContent = document.getElementById(tabId);
-    if (activeContent) {
-        activeContent.classList.remove('hidden');
-    }
-
-    // Ubah status tombol (hapus class active dari semua tombol)
-    const buttons = document.querySelectorAll('.tab-btn');
-    buttons.forEach(btn => {
-        btn.classList.remove('active');
-    });
-
-    // Tambahkan class active ke tombol yang sedang diklik
-    if (event && event.target) {
-        event.target.classList.add('active');
-    }
-}
-
-// === 2. EFEK KLIK PADA PRODUK (Grid Item) ===
-document.querySelectorAll('.grid-item').forEach(item => {
-    item.addEventListener('click', function() {
-        const productName = this.querySelector('span').innerText;
-        // Notifikasi saat produk diklik (bisa diganti dengan logika routing nanti)
-        alert(`Anda memilih: ${productName}\nFitur transaksi akan segera dibuka.`);
-    });
-});
-
-// === 3. EFEK KLIK TOMBOL TOP UP ===
-const btnTopup = document.querySelector('.btn-topup');
-if (btnTopup) {
-    btnTopup.addEventListener('click', function() {
-        alert('Membuka halaman Top Up Stok Agen...');
-    });
-}
-
-// === 4. FITUR ZOOM GAMBAR QRIS (TAMBAHAN BARU) ===
-// Fitur ini berguna agar pelanggan bisa klik gambar QRIS dan memperbesarnya agar mudah discan
-const qrisImg = document.querySelector('.qris-img');
-
-if (qrisImg) {
-    qrisImg.addEventListener('click', function() {
-        // Cek apakah gambar sudah dalam mode zoom
-        if (this.classList.contains('zoom')) {
-            // Jika sudah, kembalikan ke ukuran normal
-            this.classList.remove('zoom');
-            this.style.cursor = 'zoom-in';
+    // Looping semua produk untuk disembunyikan/ditampilkan
+    items.forEach(item => {
+        let text = item.querySelector('h4').innerText.toLowerCase();
+        let price = item.querySelector('.price').innerText.toLowerCase();
+        
+        // Jika teks judul atau harga cocok dengan pencarian
+        if (text.includes(filter) || price.includes(filter)) {
+            item.style.display = 'block'; // Tampilkan
         } else {
-            // Jika belum, perbesar gambar
-            this.classList.add('zoom');
-            this.style.cursor = 'zoom-out';
+            item.style.display = 'none'; // Sembunyikan
         }
+    });
+}
+
+// === KLIK PRODUK PULSA (MENAMPILKAN ALERT) ===
+// Pastikan script ini hanya berjalan jika elemen .product-item ada di halaman
+if (document.querySelectorAll('.product-item').length > 0) {
+    document.querySelectorAll('.product-item').forEach(item => {
+        item.addEventListener('click', function() {
+            const productName = this.querySelector('h4').innerText;
+            const price = this.querySelector('.price').innerText;
+            const nomorHp = document.getElementById('nomorHp').value;
+
+            if(!nomorHp) {
+                alert("Silakan masukkan nomor HP terlebih dahulu!");
+                return;
+            }
+
+            alert(`Konfirmasi Pembelian:\n\nProduk: ${productName}\nHarga: Rp ${price}\nNomor Tujuan: ${nomorHp}`);
+            // Di sini Anda bisa menambahkan logika untuk lanjut ke halaman pembayaran
+        });
     });
 }
