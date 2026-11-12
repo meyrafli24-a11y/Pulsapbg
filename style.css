@@ -37,3 +37,17 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 /* ============================================== */
+
+/* Style untuk gambar QRIS yang bisa di-zoom */
+.qris-img {
+    cursor: zoom-in; /* Mengubah kursor jadi kaca pembesar */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efek animasi halus */
+}
+
+.qris-img.zoom {
+    transform: scale(1.8); /* Memperbesar gambar 1.8 kali lipat */
+    position: relative;
+    z-index: 999; /* Memastikan gambar ada di paling depan */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Efek bayangan saat zoom */
+    border-radius: 10px;
+}
