@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Beli Pulsa - Tri</title>
-    <!-- Pastikan style.css sudah benar -->
+    <title>Beli Pulsa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-gray">
 
-    <!-- Header Halaman Pulsa -->
     <header class="page-header">
         <a href="index.html" class="back-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
@@ -21,26 +19,25 @@
 
     <main class="app-main pulsa-main">
         
-        <!-- Kartu Input Nomor -->
         <div class="card input-card">
             <div class="input-header">
                 <div class="icon-box bg-light-green">
                     <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
                 </div>
-                <h2>Pulsa</h2>
+                <!-- ID ini akan diubah oleh JS sesuai provider -->
+                <h2 id="judulProvider">Pulsa</h2>
             </div>
             
             <div class="input-group">
                 <label>Nomor HP</label>
                 <div class="input-wrapper">
-                    <input type="tel" id="nomorHp" value="0898" placeholder="Masukkan nomor HP">
+                    <input type="tel" id="nomorHp" value="" placeholder="Masukkan nomor HP">
                     <button class="clear-btn" onclick="document.getElementById('nomorHp').value=''">
                         <svg viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
                     </button>
                 </div>
             </div>
 
-            <!-- Tombol Bantuan Input -->
             <div class="input-tools">
                 <button><svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Kontak</button>
                 <button><svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><path d="M7 7h.01M7 12h.01M12 7h.01M12 12h.01M17 7h.01M17 12h.01M7 17h10"/></svg> Scan QR</button>
@@ -49,65 +46,26 @@
         </div>
 
         <!-- Tab Provider -->
-        <div class="provider-tabs">
-            <button class="p-tab active">Tri</button>
-            <button class="p-tab">+Masa Aktif Tri</button>
+        <div class="provider-tabs" id="providerTabs">
+            <button class="p-tab active" id="tabNamaProvider">Provider</button>
+            <button class="p-tab">+Masa Aktif</button>
         </div>
 
-        <!-- Pencarian & Filter -->
+        <!-- Pencarian -->
         <div class="search-filter">
             <div class="search-box">
-                <input type="text" placeholder="Pencarian" id="searchInput">
+                <input type="text" placeholder="Pencarian" id="searchInput" onkeyup="filterProduk()">
             </div>
             <button class="filter-btn bg-white">
                 <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
             </button>
-            <button class="filter-btn bg-white">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            </button>
         </div>
 
-        <!-- Grid Produk Pulsa -->
-        <div class="product-grid-pulsa" id="produkGrid">
-            <!-- Saya persingkat sedikit agar tidak terlalu panjang, tapi isinya tetap sama -->
-            <div class="product-item">
-                <h4>Pulsa Tri 5.000</h4>
-                <p class="price">5.200</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri Promo 5.000</h4>
-                <p class="price">5.228</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri Promo 10.000</h4>
-                <p class="price">10.042</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri 10.000</h4>
-                <p class="price">10.335</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri 15.000</h4>
-                <p class="price">14.750</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri Promo 20.000</h4>
-                <p class="price">19.845</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri 20.000</h4>
-                <p class="price">19.950</p>
-            </div>
-            <div class="product-item">
-                <h4>Pulsa Tri 25.000</h4>
-                <p class="price">24.745</p>
-            </div>
-            <!-- Tambahkan sisanya jika perlu -->
-        </div>
+        <!-- Grid Produk (Diisi oleh JS) -->
+        <div class="product-grid-pulsa" id="produkGrid"></div>
 
     </main>
 
-    <!-- INI YANG DIUBAH: Memanggil pulsa.js, bukan script.js -->
     <script src="pulsa.js"></script>
 </body>
 </html>
